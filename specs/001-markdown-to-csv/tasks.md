@@ -18,7 +18,7 @@ description: "Task list for Markdown to CSV CLI"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Confirm package layout and entrypoint targets in `pyproject.toml` and `src/md2csv/`
+- [X] T001 Confirm package layout and entrypoint targets in `pyproject.toml` and `src/md2csv/`
 - [ ] T002 Review existing feature decisions in `specs/001-markdown-to-csv/research.md` and align task scope to them
 
 ---
