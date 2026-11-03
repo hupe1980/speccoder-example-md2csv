@@ -1,0 +1,4 @@
+# what checks write (speccoder init)
+.speccoder/
+.pytest_cache/
+__pycache__/
