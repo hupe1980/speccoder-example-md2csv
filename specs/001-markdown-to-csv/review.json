@@ -1,0 +1,116 @@
+{
+  "requirements": {
+    "FR-001": {
+      "verdict": "approved",
+      "line": "- **FR-001**: The tool MUST accept Markdown table content from standard input.",
+      "sha256": "sha256:c8a18776d9197c2266c80bc34e5099ef4c49e36fae1309870f8bbf9584772136",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-002": {
+      "verdict": "approved",
+      "line": "- **FR-002**: The tool MUST accept Markdown table content from a file path provided by the user.",
+      "sha256": "sha256:292ed20992a9823c76b21eaade677d5b4b8d4541ab27c62a919d59a3ba53af09",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-003": {
+      "verdict": "approved",
+      "line": "- **FR-003**: The tool MUST convert each Markdown table row into a corresponding CSV row.",
+      "sha256": "sha256:72b910955507884166d6bf431de6c002d08d47edc1c7548f2d9888776d3852c0",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-004": {
+      "verdict": "approved",
+      "line": "- **FR-004**: The tool MUST preserve the order of columns and rows from the source table.",
+      "sha256": "sha256:bc213cc985402350bea629c882f54b192c5f21a53680c21dfcaed1e66209a21a",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-005": {
+      "verdict": "approved",
+      "line": "- **FR-005**: The tool MUST preserve header rows when they are present in the Markdown input.",
+      "sha256": "sha256:bee75f02a2afd693ceb861984756006d3ce9cfe2bce2b8a883b04f58f7b414a2",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-006": {
+      "verdict": "approved",
+      "line": "- **FR-006**: The tool MUST produce CSV-compliant escaping for commas, quotes, and line breaks inside cell values.",
+      "sha256": "sha256:c27a0bde2782f813fc5e6dfa4ddc99eb36e2c947600aeb5c5dce94d6c271aeac",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-007": {
+      "verdict": "approved",
+      "line": "- **FR-007**: The tool MUST treat empty table cells as empty CSV fields.",
+      "sha256": "sha256:bfa277acb3fcfb2fdd23d65fbd02dfd325c0883aec9bb8114fd0e8486c65156c",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-008": {
+      "verdict": "approved",
+      "line": "- **FR-008**: The tool MUST ignore Markdown formatting characters that are not part of the cell content.",
+      "sha256": "sha256:d96d81d2e2cac64d25585278d803dd3bf729a911fe1fc1cdf0e82211080fd331",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-009": {
+      "verdict": "approved",
+      "line": "- **FR-009**: The tool MUST report a clear message when no valid Markdown table is found in the input.",
+      "sha256": "sha256:bc86cd74f66e1319562d3d4470b14ca3e61c068050814a2b3a0264a45870bb1b",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "FR-010": {
+      "verdict": "approved",
+      "line": "- **FR-010**: The tool MUST report a clear message when the input cannot be read or parsed as a table.",
+      "sha256": "sha256:fd6bf9769f94e8cdf8e952e710f2926d7e7ca61c1473cd3f45a0f9b51baabb08",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "SC-001": {
+      "verdict": "approved",
+      "line": "- **SC-001**: Users can convert a valid Markdown table to CSV in a single command with no manual cleanup for at least 95% of typical documentation tables.",
+      "sha256": "sha256:ccfa994ab450a9e51039f88051fac240c7896c7f384a2fa120098470a0018e0f",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "SC-002": {
+      "verdict": "approved",
+      "line": "- **SC-002**: At least 90% of first-time users can successfully convert a sample table without consulting additional instructions.",
+      "sha256": "sha256:638f61af9f3d7238463a3c8069ef7e4166cf51d39ad801f2ab6bc68222aab457",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "SC-003": {
+      "verdict": "approved",
+      "line": "- **SC-003**: For valid input, the tool preserves all table rows and columns exactly as presented in the source table structure.",
+      "sha256": "sha256:79aa0bce8a34ed6206e1ba073bee59a7b2f36b0c8d5e1aa650b7318f9db8fc57",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    },
+    "SC-004": {
+      "verdict": "approved",
+      "line": "- **SC-004**: When the input contains no valid table, users receive a clear error message in all tested cases.",
+      "sha256": "sha256:1d5912dd702c5f5d5f6283d70cc71c95210dbb26fd22b26bb2bbcb923fea2d9b",
+      "by": "hupe1980",
+      "via": "terminal",
+      "at": 1793731522
+    }
+  }
+}
