@@ -34,3 +34,9 @@
 - **Alternatives considered**:
   - Multiple flags for table selection and output options: not required by the spec and would increase surface area.
   - Interactive prompts: incompatible with piping and scripting.
+
+## 6) Implementation scope alignment
+- **Decision**: Keep all feature-specific documentation under `specs/001-markdown-to-csv/` and avoid source changes for this planning task.
+- **Rationale**: This task is limited to reviewing feature decisions and aligning planning artifacts with the research notes; it should not alter runtime code.
+- **Alternatives considered**:
+  - Update package code now: premature for a planning task and outside the task scope.
