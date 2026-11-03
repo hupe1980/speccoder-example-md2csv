@@ -31,7 +31,7 @@ description: "Task list for Markdown to CSV CLI"
 
 - [X] T003 Create the CLI parsing and command dispatch skeleton in `src/md2csv/__init__.py` and `src/md2csv/__main__.py`
 - [X] T004 Create shared Markdown table parsing and CSV emission helpers in `src/md2csv/parser.py` and `src/md2csv/csv_writer.py`
-- [ ] T005 Define shared error types and exit handling for invalid input in `src/md2csv/errors.py`
+- [X] T005 Define shared error types and exit handling for invalid input in `src/md2csv/errors.py`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 from pathlib import Path
-import sys
 from typing import Sequence
+
+from .errors import Md2CsvError, exit_code_for_error
 
 
 def build_parser() -> ArgumentParser:
@@ -20,4 +21,8 @@ def run(argv: Sequence[str] | None = None) -> int:
 
 
 def main(argv: Sequence[str] | None = None) -> None:
-    raise SystemExit(run(argv))
+    try:
+        raise SystemExit(run(argv))
+    except Md2CsvError as error:
+        raise SystemExit(exit_code_for_error(error)) from error
+
