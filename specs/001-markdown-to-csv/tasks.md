@@ -61,7 +61,7 @@ description: "Task list for Markdown to CSV CLI"
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Add file path argument parsing and file loading in `src/md2csv/cli.py` (scenarios US2-1, US2-2)
+- [X] T009 [P] [US2] Add file path argument parsing and file loading in `src/md2csv/cli.py` (scenarios US2-1, US2-2)
 - [ ] T010 [US2] Extend table discovery to read Markdown content from files and report missing tables in `src/md2csv/parser.py` (scenarios US2-1, US2-2)
 - [ ] T011 [US2] Route file-based conversion through the same CSV output path in `src/md2csv/__main__.py` and `src/md2csv/csv_writer.py` (scenarios US2-1, US2-2)
 

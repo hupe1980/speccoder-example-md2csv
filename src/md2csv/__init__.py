@@ -30,7 +30,7 @@ def run(argv: Sequence[str] | None = None) -> int:
     try:
         table = parse_markdown_table(text)
     except MarkdownTableError as error:
-        raise InputError(str(error)) from error
+        raise InputError("No table was found") from error
     stdout.write(markdown_table_to_csv(table))
     return 0
 
