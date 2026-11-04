@@ -21,6 +21,10 @@ class InputError(Md2CsvError):
     """Raised when input cannot be read or parsed as Markdown table content."""
 
 
+class MalformedTableError(InputError):
+    """Raised when a detected Markdown table has inconsistent row shapes."""
+
+
 def exit_code_for_error(error: BaseException) -> int:
     if isinstance(error, Md2CsvError):
         print(error, file=sys.stderr)

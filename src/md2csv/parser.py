@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from .errors import MalformedTableError
+
 
 @dataclass(frozen=True)
 class MarkdownTable:
@@ -58,7 +60,7 @@ def parse_markdown_table(text: str) -> MarkdownTable:
             if not row:
                 break
             if len(row) != len(header):
-                raise MarkdownTableError("Malformed table row")
+                raise MalformedTableError("Malformed table row")
             body_rows.append(row)
         if body_rows:
             return MarkdownTable(header, body_rows, idx, "\n".join(lines[idx : idx + 2 + len(body_rows)]))
