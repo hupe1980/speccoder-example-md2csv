@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import sys
 
 
 @dataclass(frozen=True)
@@ -22,5 +23,6 @@ class InputError(Md2CsvError):
 
 def exit_code_for_error(error: BaseException) -> int:
     if isinstance(error, Md2CsvError):
+        print(error, file=sys.stderr)
         return error.exit_code
     return 1
