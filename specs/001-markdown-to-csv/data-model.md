@@ -1,50 +1,56 @@
-# Data Model
+# Data Model: Markdown to CSV CLI
+
+## Overview
+This feature has no persistent storage. The data model describes the in-memory flow from raw input text to parsed Markdown table rows and CSV text output.
 
 ## Entities
 
+### MarkdownInput
+- **Purpose**: Represents raw Markdown text supplied from standard input or a file.
+- **Fields**:
+  - `text`: full input content as a string
+  - `source`: optional human-readable source label such as `stdin` or a file path
+- **Notes**:
+  - Empty text is allowed at the input boundary and handled by validation.
+
 ### MarkdownTable
-Represents one parsed Markdown pipe table extracted from input.
-
-**Fields**
-- `header_cells: list[str]` — ordered header values; may be empty if the source table has no header row.
-- `body_rows: list[list[str]]` — ordered data rows, each row preserving column order.
-- `source_index: int` — zero-based position of the selected table within the input stream/file.
-- `raw_source: str` — original table text used for debugging and error reporting.
-
-**Validation Rules**
-- Must contain at least one row of cell data.
-- Each parsed row must yield a consistent column count after trimming outer pipe delimiters.
-- Escaped pipes (`\|`) must remain part of cell content, not split columns.
-- Empty cells are valid and represented as empty strings.
-
-**Relationships**
-- Converts to exactly one `CsvTable`.
+- **Purpose**: Represents one valid Markdown table selected from the input.
+- **Fields**:
+  - `headers`: ordered list of header cell strings
+  - `rows`: ordered list of body rows, each row being an ordered list of cell strings
+- **Constraints**:
+  - Each row must contain the same number of cells as the header width.
+  - Formatting noise such as surrounding pipes and extra outer spacing is removed during parsing.
+  - Escaped pipe characters inside cells remain part of the cell content.
 
 ### CsvTable
-Represents the serialized output form of a parsed Markdown table.
+- **Purpose**: Represents the emitted CSV content for a Markdown table.
+- **Fields**:
+  - `lines`: ordered list of CSV rows, each row serialized with RFC-style escaping as needed
+- **Constraints**:
+  - Column order must match the source table order.
+  - Empty cells serialize as empty CSV fields.
+  - Commas, quotes, and line breaks must be escaped according to CSV conventions.
 
-**Fields**
-- `rows: list[list[str]]` — ordered CSV rows including headers when present.
-- `header_included: bool` — indicates whether the first row originated from a Markdown header row.
+## Transformations
 
-**Validation Rules**
-- Rows must be emitted in source order.
-- Cell values must be passed through CSV escaping rules before serialization.
-- Output must preserve the same column count as the source table.
+### Input to MarkdownTable
+1. Read text from stdin or a file.
+2. Locate the first valid Markdown table in the text.
+3. Normalize cell spacing and preserve escaped characters that belong to cell content.
+4. Validate that every data row matches the table width.
 
-**Relationships**
-- Derived from one `MarkdownTable`.
-
-## State / Flow
-
-1. Read input from stdin or file.
-2. Detect and extract the first valid Markdown table.
-3. Parse rows and cells, normalizing spacing and escaped pipes.
-4. Serialize to CSV rows.
-5. Emit CSV text to stdout.
+### MarkdownTable to CsvTable
+1. Serialize header cells first when present.
+2. Serialize each body row in order.
+3. Quote fields only when required by CSV rules.
+4. Preserve empty values and embedded special characters.
 
 ## Error States
+- **NoTableFound**: No valid Markdown table is present in the input.
+- **UnreadableInput**: The file or standard input content cannot be read.
+- **MalformedTable**: The table structure is inconsistent or invalid.
 
-- **NoTableFound**: No valid Markdown table exists in the input.
-- **UnreadableInput**: The file cannot be opened or input stream cannot be read.
-- **MalformedTable**: A table-like block cannot be parsed into consistent rows/columns.
+## Validation Notes
+- The quickstart scenarios focus on a single-table conversion flow.
+- Multiple table selection is intentionally limited to the first valid table until a later decision changes the behavior.
