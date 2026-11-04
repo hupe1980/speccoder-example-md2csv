@@ -18,8 +18,8 @@ description: "Task list for Markdown to CSV CLI"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Confirm package layout and entrypoint targets in `pyproject.toml` and `src/md2csv/`
-- [ ] T002 Review existing feature decisions in `specs/001-markdown-to-csv/research.md` and align task scope to them
+- [X] T001 Confirm package layout and entrypoint targets in `pyproject.toml` and `src/md2csv/`
+- [X] T002 Review existing feature decisions in `specs/001-markdown-to-csv/research.md` and align task scope to them
 
 ---
 
@@ -29,9 +29,9 @@ description: "Task list for Markdown to CSV CLI"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T003 Create the CLI parsing and command dispatch skeleton in `src/md2csv/__init__.py` and `src/md2csv/__main__.py`
-- [ ] T004 Create shared Markdown table parsing and CSV emission helpers in `src/md2csv/parser.py` and `src/md2csv/csv_writer.py`
-- [ ] T005 Define shared error types and exit handling for invalid input in `src/md2csv/errors.py`
+- [X] T003 Create the CLI parsing and command dispatch skeleton in `src/md2csv/__init__.py` and `src/md2csv/__main__.py`
+- [X] T004 Create shared Markdown table parsing and CSV emission helpers in `src/md2csv/parser.py` and `src/md2csv/csv_writer.py`
+- [X] T005 Define shared error types and exit handling for invalid input in `src/md2csv/errors.py`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -45,9 +45,9 @@ description: "Task list for Markdown to CSV CLI"
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Add stdin reading and command-line default input handling in `src/md2csv/cli.py` (scenarios US1-1, US1-2)
-- [ ] T007 [US1] Implement conversion of one Markdown table from stdin to CSV using the shared helpers in `src/md2csv/parser.py` and `src/md2csv/csv_writer.py` (scenarios US1-1, US1-2)
-- [ ] T008 [US1] Wire CLI output and user-facing success/error messages for stdin conversion in `src/md2csv/__main__.py` and `src/md2csv/errors.py` (scenarios US1-1, US1-2)
+- [X] T006 [P] [US1] Add stdin reading and command-line default input handling in `src/md2csv/cli.py` (scenarios US1-1, US1-2)
+- [X] T007 [US1] Implement conversion of one Markdown table from stdin to CSV using the shared helpers in `src/md2csv/parser.py` and `src/md2csv/csv_writer.py` (scenarios US1-1, US1-2)
+- [X] T008 [US1] Wire CLI output and user-facing success/error messages for stdin conversion in `src/md2csv/__main__.py` and `src/md2csv/errors.py` (scenarios US1-1, US1-2)
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -61,9 +61,9 @@ description: "Task list for Markdown to CSV CLI"
 
 ### Implementation for User Story 2
 
-- [ ] T009 [P] [US2] Add file path argument parsing and file loading in `src/md2csv/cli.py` (scenarios US2-1, US2-2)
-- [ ] T010 [US2] Extend table discovery to read Markdown content from files and report missing tables in `src/md2csv/parser.py` (scenarios US2-1, US2-2)
-- [ ] T011 [US2] Route file-based conversion through the same CSV output path in `src/md2csv/__main__.py` and `src/md2csv/csv_writer.py` (scenarios US2-1, US2-2)
+- [X] T009 [P] [US2] Add file path argument parsing and file loading in `src/md2csv/cli.py` (scenarios US2-1, US2-2)
+- [X] T010 [US2] Extend table discovery to read Markdown content from files and report missing tables in `src/md2csv/parser.py` (scenarios US2-1, US2-2)
+- [X] T011 [US2] Route file-based conversion through the same CSV output path in `src/md2csv/__main__.py` and `src/md2csv/csv_writer.py` (scenarios US2-1, US2-2)
 
 **Checkpoint**: At this point, User Story 1 and User Story 2 should both work independently
 
@@ -77,9 +77,9 @@ description: "Task list for Markdown to CSV CLI"
 
 ### Implementation for User Story 3
 
-- [ ] T012 [P] [US3] Add normalization for spacing noise and empty cells in `src/md2csv/parser.py` (scenarios US3-1, US3-2)
-- [ ] T013 [P] [US3] Add escaped pipe handling and CSV-safe escaping for commas, quotes, and line breaks in `src/md2csv/csv_writer.py` (scenarios US3-1, US3-2)
-- [ ] T014 [US3] Add table-shape validation and malformed-table errors in `src/md2csv/errors.py` and `src/md2csv/parser.py` (scenarios US3-1, US3-2)
+- [X] T012 [P] [US3] Add normalization for spacing noise and empty cells in `src/md2csv/parser.py` (scenarios US3-1, US3-2)
+- [X] T013 [P] [US3] Add escaped pipe handling and CSV-safe escaping for commas, quotes, and line breaks in `src/md2csv/csv_writer.py` (scenarios US3-1, US3-2)
+- [X] T014 [US3] Add table-shape validation and malformed-table errors in `src/md2csv/errors.py` and `src/md2csv/parser.py` (scenarios US3-1, US3-2)
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -89,9 +89,9 @@ description: "Task list for Markdown to CSV CLI"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T015 [P] Validate CLI behavior against `specs/001-markdown-to-csv/quickstart.md`
-- [ ] T016 Clean up module exports and documentation comments in `src/md2csv/__init__.py` and `src/md2csv/cli.py`
-- [ ] T017 Run the full pytest suite using `uv run --locked --offline python -m pytest -q --junitxml=.speccoder/junit.xml`
+- [X] T015 [P] Validate CLI behavior against `specs/001-markdown-to-csv/quickstart.md`
+- [X] T016 Clean up module exports and documentation comments in `src/md2csv/__init__.py` and `src/md2csv/cli.py`
+- [X] T017 Run the full pytest suite using `uv run --locked --offline python -m pytest -q --junitxml=.speccoder/junit.xml`
 
 ---
 
