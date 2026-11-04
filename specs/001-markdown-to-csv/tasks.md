@@ -91,7 +91,7 @@ description: "Task list for Markdown to CSV CLI"
 
 - [X] T015 [P] Validate CLI behavior against `specs/001-markdown-to-csv/quickstart.md`
 - [X] T016 Clean up module exports and documentation comments in `src/md2csv/__init__.py` and `src/md2csv/cli.py`
-- [ ] T017 Run the full pytest suite using `uv run --locked --offline python -m pytest -q --junitxml=.speccoder/junit.xml`
+- [X] T017 Run the full pytest suite using `uv run --locked --offline python -m pytest -q --junitxml=.speccoder/junit.xml`
 
 ---
 
