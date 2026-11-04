@@ -1,25 +1,23 @@
 import subprocess
 import sys
-from textwrap import dedent
 
 
-def test_valid_markdown_table_on_stdin_outputs_equivalent_csv():
-    markdown = dedent(
-        """\
-        | name | age |
-        | --- | --- |
-        | Alice | 30 |
-        | Bob | 31 |
-        """
+def test_us1_1_valid_markdown_table_on_stdin_outputs_equivalent_csv():
+    markdown = (
+        "| name | age |\n"
+        "| --- | --- |\n"
+        "| Alice | 30 |\n"
+        "| Bob | 25 |\n"
     )
 
     result = subprocess.run(
-        [sys.executable, "-m", "md2csv"],
+        ["md2csv"],
         input=markdown,
         text=True,
         capture_output=True,
+        check=False,
     )
 
     assert result.returncode == 0
-    assert result.stdout == "name,age\r\nAlice,30\r\nBob,31\r\n"
+    assert result.stdout == "name,age\nAlice,30\nBob,25\n"
     assert result.stderr == ""
