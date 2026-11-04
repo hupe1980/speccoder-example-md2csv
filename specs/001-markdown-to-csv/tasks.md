@@ -78,7 +78,7 @@ description: "Task list for Markdown to CSV CLI"
 ### Implementation for User Story 3
 
 - [X] T012 [P] [US3] Add normalization for spacing noise and empty cells in `src/md2csv/parser.py` (scenarios US3-1, US3-2)
-- [ ] T013 [P] [US3] Add escaped pipe handling and CSV-safe escaping for commas, quotes, and line breaks in `src/md2csv/csv_writer.py` (scenarios US3-1, US3-2)
+- [X] T013 [P] [US3] Add escaped pipe handling and CSV-safe escaping for commas, quotes, and line breaks in `src/md2csv/csv_writer.py` (scenarios US3-1, US3-2)
 - [ ] T014 [US3] Add table-shape validation and malformed-table errors in `src/md2csv/errors.py` and `src/md2csv/parser.py` (scenarios US3-1, US3-2)
 
 **Checkpoint**: All user stories should now be independently functional

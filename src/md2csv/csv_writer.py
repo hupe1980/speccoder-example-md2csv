@@ -10,7 +10,11 @@ from .parser import MarkdownTable
 
 def markdown_table_to_csv(table: MarkdownTable) -> str:
     buffer = io.StringIO()
-    writer = csv.writer(buffer, lineterminator="\n")
+    writer = csv.writer(
+        buffer,
+        lineterminator="\n",
+        quoting=csv.QUOTE_MINIMAL,
+    )
     writer.writerow(table.header_cells)
     writer.writerows(table.body_rows)
     return buffer.getvalue()
