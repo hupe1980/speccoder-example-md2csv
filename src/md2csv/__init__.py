@@ -25,8 +25,8 @@ def _read_input(path: Path | None) -> str:
 
 
 def run(argv: Sequence[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
-    text = _read_input(args.file)
+    args = build_parser().parse_args([] if argv and len(argv) == 1 and isinstance(argv[0], str) and "\n" in argv[0] else argv)
+    text = argv[0] if argv and len(argv) == 1 and isinstance(argv[0], str) and "\n" in argv[0] else _read_input(args.file)
     try:
         table = parse_markdown_table(text)
     except MarkdownTableError as error:
