@@ -45,7 +45,7 @@ description: "Task list for Markdown to CSV CLI"
 
 ### Implementation for User Story 1
 
-- [ ] T006 [P] [US1] Add stdin reading and command-line default input handling in `src/md2csv/cli.py` (scenarios US1-1, US1-2)
+- [X] T006 [P] [US1] Add stdin reading and command-line default input handling in `src/md2csv/cli.py` (scenarios US1-1, US1-2)
 - [ ] T007 [US1] Implement conversion of one Markdown table from stdin to CSV using the shared helpers in `src/md2csv/parser.py` and `src/md2csv/csv_writer.py` (scenarios US1-1, US1-2)
 - [ ] T008 [US1] Wire CLI output and user-facing success/error messages for stdin conversion in `src/md2csv/__main__.py` and `src/md2csv/errors.py` (scenarios US1-1, US1-2)
 

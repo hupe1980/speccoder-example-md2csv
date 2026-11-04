@@ -4,9 +4,12 @@ from __future__ import annotations
 
 from argparse import ArgumentParser
 from pathlib import Path
+from sys import stdin, stdout
 from typing import Sequence
 
-from .errors import Md2CsvError, exit_code_for_error
+from .csv_writer import markdown_table_to_csv
+from .errors import InputError, Md2CsvError, exit_code_for_error
+from .parser import MarkdownTableError, parse_markdown_table
 
 
 def build_parser() -> ArgumentParser:
@@ -15,8 +18,20 @@ def build_parser() -> ArgumentParser:
     return parser
 
 
+def _read_input(path: Path | None) -> str:
+    if path is None:
+        return stdin.read()
+    return path.read_text(encoding="utf-8")
+
+
 def run(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    text = _read_input(args.file)
+    try:
+        table = parse_markdown_table(text)
+    except MarkdownTableError as error:
+        raise InputError(str(error)) from error
+    stdout.write(markdown_table_to_csv(table))
     return 0
 
 
